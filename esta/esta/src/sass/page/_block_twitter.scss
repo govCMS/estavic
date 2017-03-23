@@ -1,0 +1,10 @@
+#block-block-11 {
+  padding-top: $default_padding;
+  padding-bottom: $default_padding;
+  h2 {
+    @include medium-title;
+  }
+  iframe {
+    width: 100% !important;
+  }
+}

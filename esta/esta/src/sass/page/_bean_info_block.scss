@@ -1,0 +1,6 @@
+.bean-info-block {
+  display: none;
+  @include breakpoint(desktop) {
+    display: block;
+  }
+}

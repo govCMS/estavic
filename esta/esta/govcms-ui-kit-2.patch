@@ -1,0 +1,1742 @@
+diff --git a/modules/features/govcms_beans/govcms_beans.features.field_base.inc b/modules/features/govcms_beans/govcms_beans.features.field_base.inc
+index cff30bc..5b515fd 100644
+--- a/modules/features/govcms_beans/govcms_beans.features.field_base.inc
++++ b/modules/features/govcms_beans/govcms_beans.features.field_base.inc
+@@ -10,21 +10,13 @@
+ function govcms_beans_field_default_field_bases() {
+   $field_bases = array();
+
+-  // Exported field_base: 'field_bean_body'
++  // Exported field_base: 'field_bean_body'.
+   $field_bases['field_bean_body'] = array(
+     'active' => 1,
+     'cardinality' => 1,
+     'deleted' => 0,
+     'entity_types' => array(),
+     'field_name' => 'field_bean_body',
+-    'foreign keys' => array(
+-      'format' => array(
+-        'columns' => array(
+-          'format' => 'format',
+-        ),
+-        'table' => 'filter_format',
+-      ),
+-    ),
+     'indexes' => array(
+       'format' => array(
+         0 => 'format',
+@@ -37,21 +29,13 @@ function govcms_beans_field_default_field_bases() {
+     'type' => 'text_long',
+   );
+
+-  // Exported field_base: 'field_bean_image'
++  // Exported field_base: 'field_bean_image'.
+   $field_bases['field_bean_image'] = array(
+     'active' => 1,
+     'cardinality' => 1,
+     'deleted' => 0,
+     'entity_types' => array(),
+     'field_name' => 'field_bean_image',
+-    'foreign keys' => array(
+-      'fid' => array(
+-        'columns' => array(
+-          'fid' => 'fid',
+-        ),
+-        'table' => 'file_managed',
+-      ),
+-    ),
+     'indexes' => array(
+       'fid' => array(
+         0 => 'fid',
+@@ -67,21 +51,13 @@ function govcms_beans_field_default_field_bases() {
+     'type' => 'image',
+   );
+
+-  // Exported field_base: 'field_bean_text'
++  // Exported field_base: 'field_bean_text'.
+   $field_bases['field_bean_text'] = array(
+     'active' => 1,
+     'cardinality' => 1,
+     'deleted' => 0,
+     'entity_types' => array(),
+     'field_name' => 'field_bean_text',
+-    'foreign keys' => array(
+-      'format' => array(
+-        'columns' => array(
+-          'format' => 'format',
+-        ),
+-        'table' => 'filter_format',
+-      ),
+-    ),
+     'indexes' => array(
+       'format' => array(
+         0 => 'format',
+@@ -94,14 +70,13 @@ function govcms_beans_field_default_field_bases() {
+     'type' => 'text_long',
+   );
+
+-  // Exported field_base: 'field_link_to'
++  // Exported field_base: 'field_link_to'.
+   $field_bases['field_link_to'] = array(
+     'active' => 1,
+     'cardinality' => 1,
+     'deleted' => 0,
+     'entity_types' => array(),
+     'field_name' => 'field_link_to',
+-    'foreign keys' => array(),
+     'indexes' => array(),
+     'locked' => 0,
+     'module' => 'link',
+diff --git a/modules/features/govcms_beans/govcms_beans.features.field_instance.inc b/modules/features/govcms_beans/govcms_beans.features.field_instance.inc
+index 1f2c42c..1244cc2 100644
+--- a/modules/features/govcms_beans/govcms_beans.features.field_instance.inc
++++ b/modules/features/govcms_beans/govcms_beans.features.field_instance.inc
+@@ -10,7 +10,7 @@
+ function govcms_beans_field_default_field_instances() {
+   $field_instances = array();
+
+-  // Exported field_instance: 'bean-basic_content-field_bean_body'
++  // Exported field_instance: 'bean-basic_content-field_bean_body'.
+   $field_instances['bean-basic_content-field_bean_body'] = array(
+     'bundle' => 'basic_content',
+     'default_value' => NULL,
+@@ -50,7 +50,7 @@ function govcms_beans_field_default_field_instances() {
+     ),
+   );
+
+-  // Exported field_instance: 'bean-image_and_text-field_bean_image'
++  // Exported field_instance: 'bean-image_and_text-field_bean_image'.
+   $field_instances['bean-image_and_text-field_bean_image'] = array(
+     'bundle' => 'image_and_text',
+     'deleted' => 0,
+@@ -123,7 +123,7 @@ function govcms_beans_field_default_field_instances() {
+     ),
+   );
+
+-  // Exported field_instance: 'bean-image_and_text-field_bean_text'
++  // Exported field_instance: 'bean-image_and_text-field_bean_text'.
+   $field_instances['bean-image_and_text-field_bean_text'] = array(
+     'bundle' => 'image_and_text',
+     'default_value' => NULL,
+@@ -172,7 +172,7 @@ function govcms_beans_field_default_field_instances() {
+     ),
+   );
+
+-  // Exported field_instance: 'bean-image_and_text-field_link_to'
++  // Exported field_instance: 'bean-image_and_text-field_link_to'.
+   $field_instances['bean-image_and_text-field_link_to'] = array(
+     'bundle' => 'image_and_text',
+     'default_value' => NULL,
+@@ -180,14 +180,14 @@ function govcms_beans_field_default_field_instances() {
+     'description' => 'This field overrides the title so it links to internal or external sources.',
+     'display' => array(
+       'default' => array(
+-        'label' => 'above',
++        'label' => 'hidden',
+         'module' => 'link',
+         'settings' => array(),
+         'type' => 'link_default',
+         'weight' => 2,
+       ),
+       'highlight' => array(
+-        'label' => 'above',
++        'label' => 'hidden',
+         'module' => 'link',
+         'settings' => array(),
+         'type' => 'link_default',
+@@ -199,8 +199,10 @@ function govcms_beans_field_default_field_instances() {
+     'label' => 'Link to',
+     'required' => 0,
+     'settings' => array(
++      'absolute_url' => 1,
+       'attributes' => array(
+         'class' => '',
++        'configurable_class' => 0,
+         'configurable_title' => 0,
+         'rel' => '',
+         'target' => 'default',
+@@ -216,7 +218,8 @@ function govcms_beans_field_default_field_instances() {
+         'profile' => '',
+       ),
+       'rel_remove' => 'default',
+-      'title' => 'none',
++      'title' => 'optional',
++      'title_label_use_field_label' => 0,
+       'title_maxlength' => 255,
+       'title_value' => '',
+       'url' => 0,
+diff --git a/modules/features/govcms_beans/govcms_beans.features.inc b/modules/features/govcms_beans/govcms_beans.features.inc
+index 6ea1e9a..5d34668 100644
+--- a/modules/features/govcms_beans/govcms_beans.features.inc
++++ b/modules/features/govcms_beans/govcms_beans.features.inc
+@@ -24,16 +24,8 @@ function govcms_beans_image_default_styles() {
+
+   // Exported image style: image_and_text_bean.
+   $styles['image_and_text_bean'] = array(
+-    'name' => 'image_and_text_bean',
+     'effects' => array(
+       9 => array(
+-        'label' => 'Scale',
+-        'help' => 'Scaling will maintain the aspect-ratio of the original image. If only a single dimension is specified, the other dimension will be calculated.',
+-        'effect callback' => 'image_scale_effect',
+-        'dimensions callback' => 'image_scale_dimensions',
+-        'form callback' => 'image_scale_form',
+-        'summary theme' => 'image_scale_summary',
+-        'module' => 'image',
+         'name' => 'image_scale',
+         'data' => array(
+           'width' => 300,
+@@ -48,16 +40,8 @@ function govcms_beans_image_default_styles() {
+
+   // Exported image style: image_and_text_bean_large.
+   $styles['image_and_text_bean_large'] = array(
+-    'name' => 'image_and_text_bean_large',
+     'effects' => array(
+       2 => array(
+-        'label' => 'Scale',
+-        'help' => 'Scaling will maintain the aspect-ratio of the original image. If only a single dimension is specified, the other dimension will be calculated.',
+-        'effect callback' => 'image_scale_effect',
+-        'dimensions callback' => 'image_scale_dimensions',
+-        'form callback' => 'image_scale_form',
+-        'summary theme' => 'image_scale_summary',
+-        'module' => 'image',
+         'name' => 'image_scale',
+         'data' => array(
+           'width' => 690,
+@@ -72,16 +56,8 @@ function govcms_beans_image_default_styles() {
+
+   // Exported image style: image_and_text_bean_small.
+   $styles['image_and_text_bean_small'] = array(
+-    'name' => 'image_and_text_bean_small',
+     'effects' => array(
+       2 => array(
+-        'label' => 'Scale and crop',
+-        'help' => 'Scale and crop will maintain the aspect-ratio of the original image, then crop the larger dimension. This is most useful for creating perfectly square thumbnails without stretching the image.',
+-        'effect callback' => 'image_scale_and_crop_effect',
+-        'dimensions callback' => 'image_resize_dimensions',
+-        'form callback' => 'image_resize_form',
+-        'summary theme' => 'image_resize_summary',
+-        'module' => 'image',
+         'name' => 'image_scale_and_crop',
+         'data' => array(
+           'width' => 80,
+diff --git a/modules/features/govcms_beans/govcms_beans.strongarm.inc b/modules/features/govcms_beans/govcms_beans.strongarm.inc
+index 0932001..283d3b9 100644
+--- a/modules/features/govcms_beans/govcms_beans.strongarm.inc
++++ b/modules/features/govcms_beans/govcms_beans.strongarm.inc
+@@ -31,6 +31,9 @@ function govcms_beans_strongarm() {
+       'highlight' => array(
+         'custom_settings' => TRUE,
+       ),
++      'diff_standard' => array(
++        'custom_settings' => FALSE,
++      ),
+     ),
+     'extra_fields' => array(
+       'form' => array(
+diff --git a/modules/features/govcms_blog/govcms_blog.features.field_base.inc b/modules/features/govcms_blog/govcms_blog.features.field_base.inc
+index b6d0190..ac10832 100644
+--- a/modules/features/govcms_blog/govcms_blog.features.field_base.inc
++++ b/modules/features/govcms_blog/govcms_blog.features.field_base.inc
+@@ -10,21 +10,13 @@
+ function govcms_blog_field_default_field_bases() {
+   $field_bases = array();
+
+-  // Exported field_base: 'field_thumbnail'
++  // Exported field_base: 'field_thumbnail'.
+   $field_bases['field_thumbnail'] = array(
+     'active' => 1,
+     'cardinality' => 1,
+     'deleted' => 0,
+     'entity_types' => array(),
+     'field_name' => 'field_thumbnail',
+-    'foreign keys' => array(
+-      'fid' => array(
+-        'columns' => array(
+-          'fid' => 'fid',
+-        ),
+-        'table' => 'file_managed',
+-      ),
+-    ),
+     'indexes' => array(
+       'fid' => array(
+         0 => 'fid',
+diff --git a/modules/features/govcms_blog/govcms_blog.features.field_instance.inc b/modules/features/govcms_blog/govcms_blog.features.field_instance.inc
+index ecda52c..f682ddc 100644
+--- a/modules/features/govcms_blog/govcms_blog.features.field_instance.inc
++++ b/modules/features/govcms_blog/govcms_blog.features.field_instance.inc
+@@ -10,7 +10,7 @@
+ function govcms_blog_field_default_field_instances() {
+   $field_instances = array();
+
+-  // Exported field_instance: 'node-blog_article-body'
++  // Exported field_instance: 'node-blog_article-body'.
+   $field_instances['node-blog_article-body'] = array(
+     'bundle' => 'blog_article',
+     'default_value' => NULL,
+@@ -98,7 +98,7 @@ The <em>body</em> field is used for the main article content.
+     ),
+   );
+
+-  // Exported field_instance: 'node-blog_article-field_tags'
++  // Exported field_instance: 'node-blog_article-field_tags'.
+   $field_instances['node-blog_article-field_tags'] = array(
+     'bundle' => 'blog_article',
+     'default_value' => NULL,
+@@ -164,7 +164,7 @@ The <em>body</em> field is used for the main article content.
+     ),
+   );
+
+-  // Exported field_instance: 'node-blog_article-field_thumbnail'
++  // Exported field_instance: 'node-blog_article-field_thumbnail'.
+   $field_instances['node-blog_article-field_thumbnail'] = array(
+     'bundle' => 'blog_article',
+     'deleted' => 0,
+@@ -185,7 +185,7 @@ The <em>body</em> field is used for the main article content.
+         'module' => 'image',
+         'settings' => array(
+           'image_link' => 'content',
+-          'image_style' => 'thumbnail',
++          'image_style' => 'esta_thumbnail',
+         ),
+         'type' => 'image',
+         'weight' => 0,
+@@ -225,7 +225,7 @@ The <em>body</em> field is used for the main article content.
+         'module' => 'image',
+         'settings' => array(
+           'image_link' => 'content',
+-          'image_style' => 'medium',
++          'image_style' => 'esta_thumbnail',
+         ),
+         'type' => 'image',
+         'weight' => 0,
+diff --git a/modules/features/govcms_blog/govcms_blog.features.inc b/modules/features/govcms_blog/govcms_blog.features.inc
+index 5872c9d..938e1b9 100644
+--- a/modules/features/govcms_blog/govcms_blog.features.inc
++++ b/modules/features/govcms_blog/govcms_blog.features.inc
+@@ -28,16 +28,8 @@ function govcms_blog_image_default_styles() {
+
+   // Exported image style: blog_teaser_thumbnail.
+   $styles['blog_teaser_thumbnail'] = array(
+-    'name' => 'blog_teaser_thumbnail',
+     'effects' => array(
+       2 => array(
+-        'label' => 'Scale and crop',
+-        'help' => 'Scale and crop will maintain the aspect-ratio of the original image, then crop the larger dimension. This is most useful for creating perfectly square thumbnails without stretching the image.',
+-        'effect callback' => 'image_scale_and_crop_effect',
+-        'dimensions callback' => 'image_resize_dimensions',
+-        'form callback' => 'image_resize_form',
+-        'summary theme' => 'image_resize_summary',
+-        'module' => 'image',
+         'name' => 'image_scale_and_crop',
+         'data' => array(
+           'width' => 64,
+diff --git a/modules/features/govcms_blog/govcms_blog.info b/modules/features/govcms_blog/govcms_blog.info
+index 9a1a646..f0322be 100644
+--- a/modules/features/govcms_blog/govcms_blog.info
++++ b/modules/features/govcms_blog/govcms_blog.info
+@@ -3,11 +3,11 @@ description = Provides a Blog feature.
+ core = 7.x
+ package = govCMS
+ project = govcms_blog
+-dependencies[] = govcms_common_fields
+-dependencies[] = govcms_tags
+ dependencies[] = ctools
+ dependencies[] = ds
+ dependencies[] = features
++dependencies[] = govcms_common_fields
++dependencies[] = govcms_tags
+ dependencies[] = image
+ dependencies[] = media
+ dependencies[] = options
+@@ -50,5 +50,5 @@ features[variable][] = scheduler_unpublish_enable_blog_article
+ features[variable][] = scheduler_unpublish_moderation_state_blog_article
+ features[variable][] = scheduler_unpublish_required_blog_article
+ features[variable][] = scheduler_unpublish_revision_blog_article
++features[variable][] = xmlsitemap_settings_node_blog_article
+ features[views_view][] = home_page_blog_articles
+-mtime = 1416971727
+diff --git a/modules/features/govcms_blog/govcms_blog.strongarm.inc b/modules/features/govcms_blog/govcms_blog.strongarm.inc
+index 8db9473..ec94766 100644
+--- a/modules/features/govcms_blog/govcms_blog.strongarm.inc
++++ b/modules/features/govcms_blog/govcms_blog.strongarm.inc
+@@ -95,6 +95,9 @@ function govcms_blog_strongarm() {
+       'revision' => array(
+         'custom_settings' => FALSE,
+       ),
++      'compact' => array(
++        'custom_settings' => TRUE,
++      ),
+     ),
+     'extra_fields' => array(
+       'form' => array(
+@@ -228,5 +231,15 @@ function govcms_blog_strongarm() {
+   $strongarm->value = 0;
+   $export['scheduler_unpublish_revision_blog_article'] = $strongarm;
+
++  $strongarm = new stdClass();
++  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
++  $strongarm->api_version = 1;
++  $strongarm->name = 'xmlsitemap_settings_node_blog_article';
++  $strongarm->value = array(
++    'status' => '1',
++    'priority' => '0.5',
++  );
++  $export['xmlsitemap_settings_node_blog_article'] = $strongarm;
++
+   return $export;
+ }
+diff --git a/modules/features/govcms_blog/govcms_blog.views_default.inc b/modules/features/govcms_blog/govcms_blog.views_default.inc
+index caac8c7..cdf41e8 100644
+--- a/modules/features/govcms_blog/govcms_blog.views_default.inc
++++ b/modules/features/govcms_blog/govcms_blog.views_default.inc
+@@ -85,6 +85,12 @@ function govcms_blog_views_default_views() {
+   $handler = $view->new_display('page', 'Blog Page', 'page_1');
+   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+   $handler->display->display_options['defaults']['use_more'] = FALSE;
++  $handler->display->display_options['defaults']['pager'] = FALSE;
++  $handler->display->display_options['pager']['type'] = 'full';
++  $handler->display->display_options['pager']['options']['items_per_page'] = '5';
++  $handler->display->display_options['pager']['options']['offset'] = '0';
++  $handler->display->display_options['pager']['options']['id'] = '0';
++  $handler->display->display_options['pager']['options']['quantity'] = '9';
+   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+   $handler->display->display_options['style_plugin'] = 'default';
+   $handler->display->display_options['defaults']['style_options'] = FALSE;
+diff --git a/modules/features/govcms_editing/govcms_editing.features.filter.inc b/modules/features/govcms_editing/govcms_editing.features.filter.inc
+index 6b70f17..86168de 100644
+--- a/modules/features/govcms_editing/govcms_editing.features.filter.inc
++++ b/modules/features/govcms_editing/govcms_editing.features.filter.inc
+@@ -25,7 +25,7 @@ function govcms_editing_filter_default_formats() {
+           'valid_elements' => 'a[href|rel|target<_blank|title|class|name|id],
+ div[id|class|align<center?justify?left?right],
+ br,em,i,strong,cite,code,blockquote,ul,ol[class],li[class],dl,dt,dd,
+-span,p[class],address,
++span,p[class],
+ h2[class],h3[class],h4[class],h5[class],h6[class],
+ img[!src|title|alt|width|height|class|hspace|vspace],
+ table[border|cellpadding|cellspacing|align|dir|summary|style],tr[scope],thead,td[colspan|rowspan|headers|class|id],th[colspan|rowspan|class|headers|id|scope],tbody,caption,sup,sub,
+@@ -102,12 +102,12 @@ video',
+           ),
+           'style_dimension' => array(
+             'height' => 'height',
+-            'width' => 'width',
+             'line-height' => 0,
+             'max-height' => 0,
+             'max-width' => 0,
+             'min-height' => 0,
+             'min-width' => 0,
++            'width' => 'width',
+           ),
+           'style_positioning' => array(
+             'bottom' => 0,
+@@ -271,6 +271,47 @@ video',
+           'video_filter_autoplay' => 1,
+           'video_filter_related' => 1,
+           'video_filter_html5' => 1,
++          'video_filter_codecs' => array(
++            'archive' => 'Archive.org',
++            'bliptv' => 'Blip.tv',
++            'candidcareer' => 'Candid Career',
++            'capped' => 'Capped',
++            'collegehumor' => 'College Humor',
++            'coub' => 'Coub',
++            'dailymotion' => 'DailyMotion',
++            'democracynow_fullshow' => 'DemocracyNow Fullshow',
++            'democracynow_story' => 'DemocracyNow Story',
++            'flickr_slideshows' => 'Flickr Slideshows',
++            'flickr_video' => 'Flickr Video',
++            'foxnews' => 'Fox News',
++            'gametrailers' => 'Game Trailers',
++            'gamevideos' => 'Game Videos',
++            'giphy' => 'Giphy',
++            'godtube' => 'GodTube',
++            'google' => 'Google Video',
++            'instagram' => 'Instagram',
++            'metacafe' => 'Meta Cafe',
++            'mailru' => 'Mail.Ru',
++            'myspace' => 'MySpace',
++            'myvideo' => 'MyVideo',
++            'picasa_slideshows' => 'Picasa Slideshows',
++            'rutube' => 'Rutube',
++            'slideshare' => 'Slideshare',
++            'streamhoster' => 'Streamhoster',
++            'teachertube' => 'Teachertube',
++            'ted' => 'TED',
++            'twitch' => 'Twitch',
++            'ustream' => 'Ustream',
++            'vbox' => 'Vbox7',
++            'vimeo' => 'Vimeo',
++            'vine' => 'Vine',
++            'whatchado' => 'whatchado',
++            'wistia' => 'Wistia',
++            'youku' => 'YouKu',
++            'youtube' => 'YouTube',
++            'youtube_playlist' => 'YouTube (Playlist)',
++          ),
++          'video_filter_multiple_sources' => TRUE,
+         ),
+       ),
+       'filter_url' => array(
+diff --git a/modules/features/govcms_editing/govcms_editing.features.wysiwyg.inc b/modules/features/govcms_editing/govcms_editing.features.wysiwyg.inc
+index 224c09a..5bd652b 100644
+--- a/modules/features/govcms_editing/govcms_editing.features.wysiwyg.inc
++++ b/modules/features/govcms_editing/govcms_editing.features.wysiwyg.inc
+@@ -33,6 +33,7 @@ function govcms_editing_wysiwyg_default_profiles() {
+           'PasteFromWord' => 1,
+           'RemoveFormat' => 1,
+           'Format' => 1,
++          'Styles' => 1,
+           'Table' => 1,
+           'SpellChecker' => 1,
+           'Scayt' => 1,
+@@ -40,6 +41,10 @@ function govcms_editing_wysiwyg_default_profiles() {
+         'linkit' => array(
+           'linkit' => 1,
+         ),
++        'performx' => array(
++          'pxTable' => 1,
++          'pxAccessibility' => 1,
++        ),
+         'video_filter' => array(
+           'video_filter' => 1,
+         ),
+@@ -55,9 +60,9 @@ function govcms_editing_wysiwyg_default_profiles() {
+       'acf_allowed_content' => '',
+       'css_setting' => 'theme',
+       'css_path' => '',
+-      'stylesSet' => '',
++      'stylesSet' => 'Introduction=p.introduction',
+       'block_formats' => 'p,address,pre,h2,h3,h4,h5,h6,div',
+-      'advanced__active_tab' => 'edit-basic',
++      'advanced__active_tab' => 'edit-css',
+       'forcePasteAsPlainText' => 0,
+     ),
+     'rdf_mapping' => array(),
+diff --git a/modules/features/govcms_image_styles/govcms_image_styles.features.inc b/modules/features/govcms_image_styles/govcms_image_styles.features.inc
+index 3e9f953..ca5ec00 100644
+--- a/modules/features/govcms_image_styles/govcms_image_styles.features.inc
++++ b/modules/features/govcms_image_styles/govcms_image_styles.features.inc
+@@ -21,16 +21,8 @@ function govcms_image_styles_image_default_styles() {
+
+   // Exported image style: article_page_620x349.
+   $styles['article_page_620x349'] = array(
+-    'name' => 'article_page_620x349',
+     'effects' => array(
+       1 => array(
+-        'label' => 'Scale and crop',
+-        'help' => 'Scale and crop will maintain the aspect-ratio of the original image, then crop the larger dimension. This is most useful for creating perfectly square thumbnails without stretching the image.',
+-        'effect callback' => 'image_scale_and_crop_effect',
+-        'dimensions callback' => 'image_resize_dimensions',
+-        'form callback' => 'image_resize_form',
+-        'summary theme' => 'image_resize_summary',
+-        'module' => 'image',
+         'name' => 'image_scale_and_crop',
+         'data' => array(
+           'width' => 620,
+@@ -42,5 +34,35 @@ function govcms_image_styles_image_default_styles() {
+     'label' => 'article_page_620x349',
+   );
+
++  // Exported image style: esta_banner.
++  $styles['esta_banner'] = array(
++    'label' => 'govCMS UI-KIT - Banner',
++    'effects' => array(
++      1 => array(
++        'name' => 'image_scale_and_crop',
++        'data' => array(
++          'width' => 1650,
++          'height' => 440,
++        ),
++        'weight' => 1,
++      ),
++    ),
++  );
++
++  // Exported image style: esta_thumbnail.
++  $styles['esta_thumbnail'] = array(
++    'label' => 'govCMS UI-KIT - Thumbnail',
++    'effects' => array(
++      2 => array(
++        'name' => 'image_scale_and_crop',
++        'data' => array(
++          'width' => 370,
++          'height' => 275,
++        ),
++        'weight' => 1,
++      ),
++    ),
++  );
++
+   return $styles;
+ }
+diff --git a/modules/features/govcms_image_styles/govcms_image_styles.info b/modules/features/govcms_image_styles/govcms_image_styles.info
+index dda111d..dd2e23d 100644
+--- a/modules/features/govcms_image_styles/govcms_image_styles.info
++++ b/modules/features/govcms_image_styles/govcms_image_styles.info
+@@ -1,6 +1,7 @@
+ name = Image Styles
+ core = 7.x
+ package = govCMS core
++version = 7.x-1.1
+ dependencies[] = ctools
+ dependencies[] = features
+ dependencies[] = field_sql_storage
+@@ -12,3 +13,5 @@ features[features_api][] = api:2
+ features[file_display][] = image__default__file_image
+ features[file_display][] = image__media_small__file_image
+ features[image][] = article_page_620x349
++features[image][] = esta_banner
++features[image][] = esta_thumbnail
+diff --git a/modules/features/govcms_media_releases/govcms_media_releases.features.field_instance.inc b/modules/features/govcms_media_releases/govcms_media_releases.features.field_instance.inc
+index fc5ddec..7ce7e58 100644
+--- a/modules/features/govcms_media_releases/govcms_media_releases.features.field_instance.inc
++++ b/modules/features/govcms_media_releases/govcms_media_releases.features.field_instance.inc
+@@ -10,7 +10,7 @@
+ function govcms_media_releases_field_default_field_instances() {
+   $field_instances = array();
+
+-  // Exported field_instance: 'node-media_release-body'
++  // Exported field_instance: 'node-media_release-body'.
+   $field_instances['node-media_release-body'] = array(
+     'bundle' => 'media_release',
+     'default_value' => NULL,
+@@ -82,7 +82,7 @@ The <em>body</em> field is used for the main article content.',
+     ),
+   );
+
+-  // Exported field_instance: 'node-media_release-field_date'
++  // Exported field_instance: 'node-media_release-field_date'.
+   $field_instances['node-media_release-field_date'] = array(
+     'bundle' => 'media_release',
+     'deleted' => 0,
+@@ -97,6 +97,7 @@ The <em>body</em> field is used for the main article content.',
+           'multiple_from' => '',
+           'multiple_number' => '',
+           'multiple_to' => '',
++          'show_remaining_days' => FALSE,
+         ),
+         'type' => 'date_default',
+         'weight' => 0,
+@@ -110,6 +111,7 @@ The <em>body</em> field is used for the main article content.',
+           'multiple_from' => '',
+           'multiple_number' => '',
+           'multiple_to' => '',
++          'show_remaining_days' => FALSE,
+         ),
+         'type' => 'date_default',
+         'weight' => 4,
+@@ -129,6 +131,7 @@ The <em>body</em> field is used for the main article content.',
+           'multiple_from' => '',
+           'multiple_number' => '',
+           'multiple_to' => '',
++          'show_remaining_days' => FALSE,
+         ),
+         'type' => 'date_default',
+         'weight' => 1,
+@@ -161,7 +164,7 @@ The <em>body</em> field is used for the main article content.',
+     ),
+   );
+
+-  // Exported field_instance: 'node-media_release-field_file'
++  // Exported field_instance: 'node-media_release-field_file'.
+   $field_instances['node-media_release-field_file'] = array(
+     'bundle' => 'media_release',
+     'deleted' => 0,
+@@ -242,7 +245,7 @@ The <em>body</em> field is used for the main article content.',
+     ),
+   );
+
+-  // Exported field_instance: 'node-media_release-field_image'
++  // Exported field_instance: 'node-media_release-field_image'.
+   $field_instances['node-media_release-field_image'] = array(
+     'bundle' => 'media_release',
+     'deleted' => 0,
+@@ -285,7 +288,7 @@ The <em>body</em> field is used for the main article content.',
+         'module' => 'image',
+         'settings' => array(
+           'image_link' => 'content',
+-          'image_style' => 'medium',
++          'image_style' => 'esta_thumbnail',
+         ),
+         'type' => 'image',
+         'weight' => 0,
+@@ -335,7 +338,7 @@ The <em>body</em> field is used for the main article content.',
+     ),
+   );
+
+-  // Exported field_instance: 'node-media_release-field_tags'
++  // Exported field_instance: 'node-media_release-field_tags'.
+   $field_instances['node-media_release-field_tags'] = array(
+     'bundle' => 'media_release',
+     'default_value' => NULL,
+diff --git a/modules/features/govcms_media_releases/govcms_media_releases.info b/modules/features/govcms_media_releases/govcms_media_releases.info
+index 4701886..8e2b1d3 100644
+--- a/modules/features/govcms_media_releases/govcms_media_releases.info
++++ b/modules/features/govcms_media_releases/govcms_media_releases.info
+@@ -3,14 +3,14 @@ description = Manage the publication and display of media releases
+ core = 7.x
+ package = govCMS
+ project = govcms_media_releases
+-dependencies[] = govcms_common_fields
+-dependencies[] = govcms_publications
+-dependencies[] = govcms_tags
+ dependencies[] = ctools
+ dependencies[] = date_api
+ dependencies[] = date_views
+ dependencies[] = features
+ dependencies[] = file
++dependencies[] = govcms_common_fields
++dependencies[] = govcms_publications
++dependencies[] = govcms_tags
+ dependencies[] = image
+ dependencies[] = media
+ dependencies[] = options
+@@ -52,5 +52,5 @@ features[variable][] = scheduler_unpublish_enable_media_release
+ features[variable][] = scheduler_unpublish_moderation_state_media_release
+ features[variable][] = scheduler_unpublish_required_media_release
+ features[variable][] = scheduler_unpublish_revision_media_release
++features[variable][] = xmlsitemap_settings_node_media_release
+ features[views_view][] = media_releases
+-mtime = 1416881418
+diff --git a/modules/features/govcms_media_releases/govcms_media_releases.strongarm.inc b/modules/features/govcms_media_releases/govcms_media_releases.strongarm.inc
+index ecd615b..edfe264 100644
+--- a/modules/features/govcms_media_releases/govcms_media_releases.strongarm.inc
++++ b/modules/features/govcms_media_releases/govcms_media_releases.strongarm.inc
+@@ -227,5 +227,15 @@ function govcms_media_releases_strongarm() {
+   $strongarm->value = 0;
+   $export['scheduler_unpublish_revision_media_release'] = $strongarm;
+
++  $strongarm = new stdClass();
++  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
++  $strongarm->api_version = 1;
++  $strongarm->name = 'xmlsitemap_settings_node_media_release';
++  $strongarm->value = array(
++    'status' => '1',
++    'priority' => '0.5',
++  );
++  $export['xmlsitemap_settings_node_media_release'] = $strongarm;
++
+   return $export;
+ }
+diff --git a/modules/features/govcms_news/govcms_news.features.field_base.inc b/modules/features/govcms_news/govcms_news.features.field_base.inc
+index 1f420c8..9d7b96a 100644
+--- a/modules/features/govcms_news/govcms_news.features.field_base.inc
++++ b/modules/features/govcms_news/govcms_news.features.field_base.inc
+@@ -10,14 +10,13 @@
+ function govcms_news_field_default_field_bases() {
+   $field_bases = array();
+
+-  // Exported field_base: 'field_news_date'
++  // Exported field_base: 'field_news_date'.
+   $field_bases['field_news_date'] = array(
+     'active' => 1,
+     'cardinality' => 1,
+     'deleted' => 0,
+     'entity_types' => array(),
+     'field_name' => 'field_news_date',
+-    'foreign keys' => array(),
+     'indexes' => array(),
+     'locked' => 0,
+     'module' => 'date',
+diff --git a/modules/features/govcms_news/govcms_news.features.field_instance.inc b/modules/features/govcms_news/govcms_news.features.field_instance.inc
+index 6a5b358..fa56db7 100644
+--- a/modules/features/govcms_news/govcms_news.features.field_instance.inc
++++ b/modules/features/govcms_news/govcms_news.features.field_instance.inc
+@@ -10,7 +10,7 @@
+ function govcms_news_field_default_field_instances() {
+   $field_instances = array();
+
+-  // Exported field_instance: 'node-news_article-body'
++  // Exported field_instance: 'node-news_article-body'.
+   $field_instances['node-news_article-body'] = array(
+     'bundle' => 'news_article',
+     'default_value' => NULL,
+@@ -94,7 +94,7 @@ The <em>body</em> field is used for the main article content.',
+     ),
+   );
+
+-  // Exported field_instance: 'node-news_article-field_news_date'
++  // Exported field_instance: 'node-news_article-field_news_date'.
+   $field_instances['node-news_article-field_news_date'] = array(
+     'bundle' => 'news_article',
+     'deleted' => 0,
+@@ -115,6 +115,7 @@ The <em>body</em> field is used for the main article content.',
+           'multiple_from' => '',
+           'multiple_number' => '',
+           'multiple_to' => '',
++          'show_remaining_days' => FALSE,
+         ),
+         'type' => 'date_default',
+         'weight' => 0,
+@@ -128,6 +129,7 @@ The <em>body</em> field is used for the main article content.',
+           'multiple_from' => '',
+           'multiple_number' => '',
+           'multiple_to' => '',
++          'show_remaining_days' => FALSE,
+         ),
+         'type' => 'date_default',
+         'weight' => 0,
+@@ -147,6 +149,7 @@ The <em>body</em> field is used for the main article content.',
+           'multiple_from' => '',
+           'multiple_number' => '',
+           'multiple_to' => '',
++          'show_remaining_days' => FALSE,
+         ),
+         'type' => 'date_default',
+         'weight' => 0,
+@@ -160,6 +163,7 @@ The <em>body</em> field is used for the main article content.',
+           'multiple_from' => '',
+           'multiple_number' => '',
+           'multiple_to' => '',
++          'show_remaining_days' => FALSE,
+         ),
+         'type' => 'date_default',
+         'weight' => 0,
+@@ -193,7 +197,7 @@ The <em>body</em> field is used for the main article content.',
+     ),
+   );
+
+-  // Exported field_instance: 'node-news_article-field_tags'
++  // Exported field_instance: 'node-news_article-field_tags'.
+   $field_instances['node-news_article-field_tags'] = array(
+     'bundle' => 'news_article',
+     'default_value' => NULL,
+diff --git a/modules/features/govcms_news/govcms_news.info b/modules/features/govcms_news/govcms_news.info
+index c92e0d4..2b6eeaa 100644
+--- a/modules/features/govcms_news/govcms_news.info
++++ b/modules/features/govcms_news/govcms_news.info
+@@ -3,13 +3,13 @@ description = Provides a News feature.
+ core = 7.x
+ package = govCMS
+ project = govcms_news
+-dependencies[] = govcms_common_fields
+-dependencies[] = govcms_core
+-dependencies[] = govcms_tags
+ dependencies[] = ctools
+ dependencies[] = date
+ dependencies[] = ds
+ dependencies[] = features
++dependencies[] = govcms_common_fields
++dependencies[] = govcms_core
++dependencies[] = govcms_tags
+ dependencies[] = image
+ dependencies[] = list
+ dependencies[] = media
+@@ -67,5 +67,5 @@ features[variable][] = scheduler_unpublish_enable_news_article
+ features[variable][] = scheduler_unpublish_moderation_state_news_article
+ features[variable][] = scheduler_unpublish_required_news_article
+ features[variable][] = scheduler_unpublish_revision_news_article
++features[variable][] = xmlsitemap_settings_node_news_article
+ features[views_view][] = latest_news
+-mtime = 1416971728
+diff --git a/modules/features/govcms_news/govcms_news.pages_default.inc b/modules/features/govcms_news/govcms_news.pages_default.inc
+index 21be7ea..a617080 100644
+--- a/modules/features/govcms_news/govcms_news.pages_default.inc
++++ b/modules/features/govcms_news/govcms_news.pages_default.inc
+@@ -57,137 +57,143 @@ function govcms_news_default_page_manager_pages() {
+     'relationships' => array(),
+   );
+   $display = new panels_display();
+-  $display->layout = 'onecol';
++  $display->layout = 'twocol_stacked';
+   $display->layout_settings = array();
+   $display->panel_settings = array(
+     'style_settings' => array(
+       'default' => NULL,
+       'middle' => NULL,
++      'top' => NULL,
++      'left' => NULL,
++      'right' => NULL,
++      'bottom' => NULL,
+     ),
+   );
+   $display->cache = array();
+   $display->title = 'News & Media';
+   $display->uuid = '4baeaa24-4eeb-4753-a9ac-786200ce92b9';
++  $display->storage_type = 'page_manager';
++  $display->storage_id = 'page_news_media_panel_context';
+   $display->content = array();
+   $display->panels = array();
+-    $pane = new stdClass();
+-    $pane->pid = 'new-98cc6888-a918-421b-b9b4-0d2874cd7701';
+-    $pane->panel = 'middle';
+-    $pane->type = 'bean_panels';
+-    $pane->subtype = 'bean_panels';
+-    $pane->shown = TRUE;
+-    $pane->access = array();
+-    $pane->configuration = array(
+-      'view_mode' => 'highlight',
+-      'bean_delta' => 'news-and-media-intro',
+-      'override_title' => 1,
+-      'override_title_text' => '',
+-    );
+-    $pane->cache = array();
+-    $pane->style = array(
+-      'settings' => NULL,
+-    );
+-    $pane->css = array();
+-    $pane->extras = array();
+-    $pane->position = 0;
+-    $pane->locks = array();
+-    $pane->uuid = '98cc6888-a918-421b-b9b4-0d2874cd7701';
+-    $display->content['new-98cc6888-a918-421b-b9b4-0d2874cd7701'] = $pane;
+-    $display->panels['middle'][0] = 'new-98cc6888-a918-421b-b9b4-0d2874cd7701';
+-    $pane = new stdClass();
+-    $pane->pid = 'new-5b9c039e-64e6-4157-82de-dbfbda35d676';
+-    $pane->panel = 'middle';
+-    $pane->type = 'block';
+-    $pane->subtype = 'bean-news';
+-    $pane->shown = TRUE;
+-    $pane->access = array();
+-    $pane->configuration = array(
+-      'override_title' => 1,
+-      'override_title_text' => '',
+-    );
+-    $pane->cache = array();
+-    $pane->style = array(
+-      'settings' => NULL,
+-    );
+-    $pane->css = array();
+-    $pane->extras = array();
+-    $pane->position = 1;
+-    $pane->locks = array();
+-    $pane->uuid = '5b9c039e-64e6-4157-82de-dbfbda35d676';
+-    $display->content['new-5b9c039e-64e6-4157-82de-dbfbda35d676'] = $pane;
+-    $display->panels['middle'][1] = 'new-5b9c039e-64e6-4157-82de-dbfbda35d676';
+-    $pane = new stdClass();
+-    $pane->pid = 'new-288c494d-6ee7-449b-9beb-a19fc3c3024c';
+-    $pane->panel = 'middle';
+-    $pane->type = 'bean_panels';
+-    $pane->subtype = 'bean_panels';
+-    $pane->shown = TRUE;
+-    $pane->access = array();
+-    $pane->configuration = array(
+-      'view_mode' => 'default',
+-      'bean_delta' => 'events',
+-      'override_title' => 1,
+-      'override_title_text' => '',
+-    );
+-    $pane->cache = array();
+-    $pane->style = array(
+-      'settings' => NULL,
+-    );
+-    $pane->css = array();
+-    $pane->extras = array();
+-    $pane->position = 2;
+-    $pane->locks = array();
+-    $pane->uuid = '288c494d-6ee7-449b-9beb-a19fc3c3024c';
+-    $display->content['new-288c494d-6ee7-449b-9beb-a19fc3c3024c'] = $pane;
+-    $display->panels['middle'][2] = 'new-288c494d-6ee7-449b-9beb-a19fc3c3024c';
+-    $pane = new stdClass();
+-    $pane->pid = 'new-a8040550-f37e-437c-9446-61f0a9350f61';
+-    $pane->panel = 'middle';
+-    $pane->type = 'bean_panels';
+-    $pane->subtype = 'bean_panels';
+-    $pane->shown = TRUE;
+-    $pane->access = array();
+-    $pane->configuration = array(
+-      'view_mode' => 'default',
+-      'bean_delta' => 'media-releases',
+-      'override_title' => 1,
+-      'override_title_text' => '',
+-    );
+-    $pane->cache = array();
+-    $pane->style = array(
+-      'settings' => NULL,
+-    );
+-    $pane->css = array();
+-    $pane->extras = array();
+-    $pane->position = 3;
+-    $pane->locks = array();
+-    $pane->uuid = 'a8040550-f37e-437c-9446-61f0a9350f61';
+-    $display->content['new-a8040550-f37e-437c-9446-61f0a9350f61'] = $pane;
+-    $display->panels['middle'][3] = 'new-a8040550-f37e-437c-9446-61f0a9350f61';
+-    $pane = new stdClass();
+-    $pane->pid = 'new-8fd25fe8-ffb7-4d6a-b694-740c53d9a668';
+-    $pane->panel = 'middle';
+-    $pane->type = 'bean_panels';
+-    $pane->subtype = 'bean_panels';
+-    $pane->shown = TRUE;
+-    $pane->access = array();
+-    $pane->configuration = array(
+-      'view_mode' => 'default',
+-      'bean_delta' => 'blog',
+-      'override_title' => 1,
+-      'override_title_text' => '',
+-    );
+-    $pane->cache = array();
+-    $pane->style = array(
+-      'settings' => NULL,
+-    );
+-    $pane->css = array();
+-    $pane->extras = array();
+-    $pane->position = 4;
+-    $pane->locks = array();
+-    $pane->uuid = '8fd25fe8-ffb7-4d6a-b694-740c53d9a668';
+-    $display->content['new-8fd25fe8-ffb7-4d6a-b694-740c53d9a668'] = $pane;
+-    $display->panels['middle'][4] = 'new-8fd25fe8-ffb7-4d6a-b694-740c53d9a668';
++  $pane = new stdClass();
++  $pane->pid = 'new-5b9c039e-64e6-4157-82de-dbfbda35d676';
++  $pane->panel = 'left';
++  $pane->type = 'block';
++  $pane->subtype = 'bean-news';
++  $pane->shown = TRUE;
++  $pane->access = array();
++  $pane->configuration = array(
++    'override_title' => 1,
++    'override_title_text' => '',
++  );
++  $pane->cache = array();
++  $pane->style = array(
++    'settings' => NULL,
++  );
++  $pane->css = array();
++  $pane->extras = array();
++  $pane->position = 0;
++  $pane->locks = array();
++  $pane->uuid = '5b9c039e-64e6-4157-82de-dbfbda35d676';
++  $display->content['new-5b9c039e-64e6-4157-82de-dbfbda35d676'] = $pane;
++  $display->panels['left'][0] = 'new-5b9c039e-64e6-4157-82de-dbfbda35d676';
++  $pane = new stdClass();
++  $pane->pid = 'new-a8040550-f37e-437c-9446-61f0a9350f61';
++  $pane->panel = 'left';
++  $pane->type = 'bean_panels';
++  $pane->subtype = 'bean_panels';
++  $pane->shown = TRUE;
++  $pane->access = array();
++  $pane->configuration = array(
++    'view_mode' => 'default',
++    'bean_delta' => 'media-releases',
++    'override_title' => 1,
++    'override_title_text' => '',
++  );
++  $pane->cache = array();
++  $pane->style = array(
++    'settings' => NULL,
++  );
++  $pane->css = array();
++  $pane->extras = array();
++  $pane->position = 1;
++  $pane->locks = array();
++  $pane->uuid = 'a8040550-f37e-437c-9446-61f0a9350f61';
++  $display->content['new-a8040550-f37e-437c-9446-61f0a9350f61'] = $pane;
++  $display->panels['left'][1] = 'new-a8040550-f37e-437c-9446-61f0a9350f61';
++  $pane = new stdClass();
++  $pane->pid = 'new-288c494d-6ee7-449b-9beb-a19fc3c3024c';
++  $pane->panel = 'right';
++  $pane->type = 'bean_panels';
++  $pane->subtype = 'bean_panels';
++  $pane->shown = TRUE;
++  $pane->access = array();
++  $pane->configuration = array(
++    'view_mode' => 'default',
++    'bean_delta' => 'events',
++    'override_title' => 1,
++    'override_title_text' => '',
++  );
++  $pane->cache = array();
++  $pane->style = array(
++    'settings' => NULL,
++  );
++  $pane->css = array();
++  $pane->extras = array();
++  $pane->position = 0;
++  $pane->locks = array();
++  $pane->uuid = '288c494d-6ee7-449b-9beb-a19fc3c3024c';
++  $display->content['new-288c494d-6ee7-449b-9beb-a19fc3c3024c'] = $pane;
++  $display->panels['right'][0] = 'new-288c494d-6ee7-449b-9beb-a19fc3c3024c';
++  $pane = new stdClass();
++  $pane->pid = 'new-8fd25fe8-ffb7-4d6a-b694-740c53d9a668';
++  $pane->panel = 'right';
++  $pane->type = 'bean_panels';
++  $pane->subtype = 'bean_panels';
++  $pane->shown = TRUE;
++  $pane->access = array();
++  $pane->configuration = array(
++    'view_mode' => 'default',
++    'bean_delta' => 'blog',
++    'override_title' => 1,
++    'override_title_text' => '',
++  );
++  $pane->cache = array();
++  $pane->style = array(
++    'settings' => NULL,
++  );
++  $pane->css = array();
++  $pane->extras = array();
++  $pane->position = 1;
++  $pane->locks = array();
++  $pane->uuid = '8fd25fe8-ffb7-4d6a-b694-740c53d9a668';
++  $display->content['new-8fd25fe8-ffb7-4d6a-b694-740c53d9a668'] = $pane;
++  $display->panels['right'][1] = 'new-8fd25fe8-ffb7-4d6a-b694-740c53d9a668';
++  $pane = new stdClass();
++  $pane->pid = 'new-98cc6888-a918-421b-b9b4-0d2874cd7701';
++  $pane->panel = 'top';
++  $pane->type = 'bean_panels';
++  $pane->subtype = 'bean_panels';
++  $pane->shown = TRUE;
++  $pane->access = array();
++  $pane->configuration = array(
++    'view_mode' => 'highlight',
++    'bean_delta' => 'news-and-media-intro',
++    'override_title' => 1,
++    'override_title_text' => '',
++  );
++  $pane->cache = array();
++  $pane->style = array(
++    'settings' => NULL,
++  );
++  $pane->css = array();
++  $pane->extras = array();
++  $pane->position = 0;
++  $pane->locks = array();
++  $pane->uuid = '98cc6888-a918-421b-b9b4-0d2874cd7701';
++  $display->content['new-98cc6888-a918-421b-b9b4-0d2874cd7701'] = $pane;
++  $display->panels['top'][0] = 'new-98cc6888-a918-421b-b9b4-0d2874cd7701';
+   $display->hide_title = PANELS_TITLE_FIXED;
+   $display->title_pane = '0';
+   $handler->conf['display'] = $display;
+diff --git a/modules/features/govcms_news/govcms_news.strongarm.inc b/modules/features/govcms_news/govcms_news.strongarm.inc
+index 9ed70b4..9b824fd 100644
+--- a/modules/features/govcms_news/govcms_news.strongarm.inc
++++ b/modules/features/govcms_news/govcms_news.strongarm.inc
+@@ -306,5 +306,15 @@ function govcms_news_strongarm() {
+   $strongarm->value = 0;
+   $export['scheduler_unpublish_revision_news_article'] = $strongarm;
+
++  $strongarm = new stdClass();
++  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
++  $strongarm->api_version = 1;
++  $strongarm->name = 'xmlsitemap_settings_node_news_article';
++  $strongarm->value = array(
++    'status' => '1',
++    'priority' => '0.5',
++  );
++  $export['xmlsitemap_settings_node_news_article'] = $strongarm;
++
+   return $export;
+ }
+diff --git a/modules/features/govcms_news/govcms_news.views_default.inc b/modules/features/govcms_news/govcms_news.views_default.inc
+index ffd0aaf..2990290 100644
+--- a/modules/features/govcms_news/govcms_news.views_default.inc
++++ b/modules/features/govcms_news/govcms_news.views_default.inc
+@@ -107,13 +107,6 @@ function govcms_news_views_default_views() {
+   $handler->display->display_options['row_plugin'] = 'node';
+   $handler->display->display_options['defaults']['row_options'] = FALSE;
+   $handler->display->display_options['defaults']['footer'] = FALSE;
+-  /* Footer: Global: Text area */
+-  $handler->display->display_options['footer']['area']['id'] = 'area';
+-  $handler->display->display_options['footer']['area']['table'] = 'views';
+-  $handler->display->display_options['footer']['area']['field'] = 'area';
+-  $handler->display->display_options['footer']['area']['label'] = 'View more news';
+-  $handler->display->display_options['footer']['area']['content'] = '<a href="dsdf">View more news</a>';
+-  $handler->display->display_options['footer']['area']['format'] = 'rich_text';
+   $handler->display->display_options['defaults']['fields'] = FALSE;
+   /* Field: Content: Date */
+   $handler->display->display_options['fields']['field_news_date']['id'] = 'field_news_date';
+diff --git a/modules/features/govcms_promotion/govcms_promotion.features.field_base.inc b/modules/features/govcms_promotion/govcms_promotion.features.field_base.inc
+index f1de083..8a4de7e 100644
+--- a/modules/features/govcms_promotion/govcms_promotion.features.field_base.inc
++++ b/modules/features/govcms_promotion/govcms_promotion.features.field_base.inc
+@@ -10,21 +10,13 @@
+ function govcms_promotion_field_default_field_bases() {
+   $field_bases = array();
+
+-  // Exported field_base: 'field_description'
++  // Exported field_base: 'field_description'.
+   $field_bases['field_description'] = array(
+     'active' => 1,
+     'cardinality' => 1,
+     'deleted' => 0,
+     'entity_types' => array(),
+     'field_name' => 'field_description',
+-    'foreign keys' => array(
+-      'format' => array(
+-        'columns' => array(
+-          'format' => 'format',
+-        ),
+-        'table' => 'filter_format',
+-      ),
+-    ),
+     'indexes' => array(
+       'format' => array(
+         0 => 'format',
+@@ -37,14 +29,13 @@ function govcms_promotion_field_default_field_bases() {
+     'type' => 'text_long',
+   );
+
+-  // Exported field_base: 'field_reference'
++  // Exported field_base: 'field_reference'.
+   $field_bases['field_reference'] = array(
+     'active' => 1,
+     'cardinality' => 1,
+     'deleted' => 0,
+     'entity_types' => array(),
+     'field_name' => 'field_reference',
+-    'foreign keys' => array(),
+     'indexes' => array(
+       'target_id' => array(
+         0 => 'target_id',
+diff --git a/modules/features/govcms_promotion/govcms_promotion.features.field_instance.inc b/modules/features/govcms_promotion/govcms_promotion.features.field_instance.inc
+index fe25a2a..416b4d5 100644
+--- a/modules/features/govcms_promotion/govcms_promotion.features.field_instance.inc
++++ b/modules/features/govcms_promotion/govcms_promotion.features.field_instance.inc
+@@ -10,7 +10,7 @@
+ function govcms_promotion_field_default_field_instances() {
+   $field_instances = array();
+
+-  // Exported field_instance: 'node-footer_teaser-field_description'
++  // Exported field_instance: 'node-footer_teaser-field_description'.
+   $field_instances['node-footer_teaser-field_description'] = array(
+     'bundle' => 'footer_teaser',
+     'default_value' => NULL,
+@@ -65,7 +65,7 @@ function govcms_promotion_field_default_field_instances() {
+     ),
+   );
+
+-  // Exported field_instance: 'node-footer_teaser-field_image'
++  // Exported field_instance: 'node-footer_teaser-field_image'.
+   $field_instances['node-footer_teaser-field_image'] = array(
+     'bundle' => 'footer_teaser',
+     'deleted' => 0,
+@@ -148,7 +148,7 @@ function govcms_promotion_field_default_field_instances() {
+     ),
+   );
+
+-  // Exported field_instance: 'node-footer_teaser-field_reference'
++  // Exported field_instance: 'node-footer_teaser-field_reference'.
+   $field_instances['node-footer_teaser-field_reference'] = array(
+     'bundle' => 'footer_teaser',
+     'default_value' => NULL,
+@@ -203,7 +203,7 @@ function govcms_promotion_field_default_field_instances() {
+     ),
+   );
+
+-  // Exported field_instance: 'node-footer_teaser-field_tags'
++  // Exported field_instance: 'node-footer_teaser-field_tags'.
+   $field_instances['node-footer_teaser-field_tags'] = array(
+     'bundle' => 'footer_teaser',
+     'default_value' => NULL,
+diff --git a/modules/features/govcms_promotion/govcms_promotion.info b/modules/features/govcms_promotion/govcms_promotion.info
+index fcfbfeb..c347c0f 100644
+--- a/modules/features/govcms_promotion/govcms_promotion.info
++++ b/modules/features/govcms_promotion/govcms_promotion.info
+@@ -3,11 +3,11 @@ description = Provides a Promotion feature.
+ core = 7.x
+ package = govCMS
+ project = govcms_promotion
+-dependencies[] = govcms_common_fields
+-dependencies[] = govcms_tags
+ dependencies[] = ctools
+ dependencies[] = entityreference
+ dependencies[] = features
++dependencies[] = govcms_common_fields
++dependencies[] = govcms_tags
+ dependencies[] = image
+ dependencies[] = media
+ dependencies[] = options
+@@ -50,6 +50,6 @@ features[variable][] = scheduler_unpublish_enable_footer_teaser
+ features[variable][] = scheduler_unpublish_moderation_state_footer_teaser
+ features[variable][] = scheduler_unpublish_required_footer_teaser
+ features[variable][] = scheduler_unpublish_revision_footer_teaser
++features[variable][] = xmlsitemap_settings_node_footer_teaser
+ features[views_view][] = footer_teaser
+ features_exclude[field_base][field_image] = field_image
+-mtime = 1416890187
+diff --git a/modules/features/govcms_promotion/govcms_promotion.strongarm.inc b/modules/features/govcms_promotion/govcms_promotion.strongarm.inc
+index 0d4dcbd..6d5b8c6 100644
+--- a/modules/features/govcms_promotion/govcms_promotion.strongarm.inc
++++ b/modules/features/govcms_promotion/govcms_promotion.strongarm.inc
+@@ -225,5 +225,15 @@ function govcms_promotion_strongarm() {
+   $strongarm->value = 0;
+   $export['scheduler_unpublish_revision_footer_teaser'] = $strongarm;
+
++  $strongarm = new stdClass();
++  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
++  $strongarm->api_version = 1;
++  $strongarm->name = 'xmlsitemap_settings_node_footer_teaser';
++  $strongarm->value = array(
++    'status' => '1',
++    'priority' => '0.5',
++  );
++  $export['xmlsitemap_settings_node_footer_teaser'] = $strongarm;
++
+   return $export;
+ }
+diff --git a/modules/features/govcms_promotion/govcms_promotion.views_default.inc b/modules/features/govcms_promotion/govcms_promotion.views_default.inc
+index 94b1ea1..b236955 100644
+--- a/modules/features/govcms_promotion/govcms_promotion.views_default.inc
++++ b/modules/features/govcms_promotion/govcms_promotion.views_default.inc
+@@ -56,21 +56,6 @@ function govcms_promotion_views_default_views() {
+   $handler->display->display_options['fields']['title']['element_type'] = 'h2';
+   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+-  /* Field: Content: Image */
+-  $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
+-  $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
+-  $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
+-  $handler->display->display_options['fields']['field_image']['label'] = '';
+-  $handler->display->display_options['fields']['field_image']['element_type'] = 'div';
+-  $handler->display->display_options['fields']['field_image']['element_class'] = 'field-name-field-image';
+-  $handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
+-  $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
+-  $handler->display->display_options['fields']['field_image']['settings'] = array(
+-    'image_style' => 'blog_teaser_thumbnail',
+-    'image_link' => 'content',
+-  );
+-  $handler->display->display_options['fields']['field_image']['delta_limit'] = '1';
+-  $handler->display->display_options['fields']['field_image']['delta_offset'] = '0';
+   /* Field: Content: Promotion Text */
+   $handler->display->display_options['fields']['field_description']['id'] = 'field_description';
+   $handler->display->display_options['fields']['field_description']['table'] = 'field_data_field_description';
+diff --git a/modules/features/govcms_publications/govcms_publications.features.field_base.inc b/modules/features/govcms_publications/govcms_publications.features.field_base.inc
+index c8cfba5..a550b27 100644
+--- a/modules/features/govcms_publications/govcms_publications.features.field_base.inc
++++ b/modules/features/govcms_publications/govcms_publications.features.field_base.inc
+@@ -10,14 +10,13 @@
+ function govcms_publications_field_default_field_bases() {
+   $field_bases = array();
+
+-  // Exported field_base: 'field_date'
++  // Exported field_base: 'field_date'.
+   $field_bases['field_date'] = array(
+     'active' => 1,
+     'cardinality' => 1,
+     'deleted' => 0,
+     'entity_types' => array(),
+     'field_name' => 'field_date',
+-    'foreign keys' => array(),
+     'indexes' => array(),
+     'locked' => 0,
+     'module' => 'date',
+@@ -40,21 +39,13 @@ function govcms_publications_field_default_field_bases() {
+     'type' => 'datetime',
+   );
+
+-  // Exported field_base: 'field_documents'
++  // Exported field_base: 'field_documents'.
+   $field_bases['field_documents'] = array(
+     'active' => 1,
+     'cardinality' => -1,
+     'deleted' => 0,
+     'entity_types' => array(),
+     'field_name' => 'field_documents',
+-    'foreign keys' => array(
+-      'fid' => array(
+-        'columns' => array(
+-          'fid' => 'fid',
+-        ),
+-        'table' => 'file_managed',
+-      ),
+-    ),
+     'indexes' => array(
+       'fid' => array(
+         0 => 'fid',
+@@ -71,21 +62,13 @@ function govcms_publications_field_default_field_bases() {
+     'type' => 'file',
+   );
+
+-  // Exported field_base: 'field_subtitle'
++  // Exported field_base: 'field_subtitle'.
+   $field_bases['field_subtitle'] = array(
+     'active' => 1,
+     'cardinality' => 1,
+     'deleted' => 0,
+     'entity_types' => array(),
+     'field_name' => 'field_subtitle',
+-    'foreign keys' => array(
+-      'format' => array(
+-        'columns' => array(
+-          'format' => 'format',
+-        ),
+-        'table' => 'filter_format',
+-      ),
+-    ),
+     'indexes' => array(
+       'format' => array(
+         0 => 'format',
+diff --git a/modules/features/govcms_publications/govcms_publications.features.field_instance.inc b/modules/features/govcms_publications/govcms_publications.features.field_instance.inc
+index ecad8ae..2c6187d 100644
+--- a/modules/features/govcms_publications/govcms_publications.features.field_instance.inc
++++ b/modules/features/govcms_publications/govcms_publications.features.field_instance.inc
+@@ -10,7 +10,7 @@
+ function govcms_publications_field_default_field_instances() {
+   $field_instances = array();
+
+-  // Exported field_instance: 'node-publication-body'
++  // Exported field_instance: 'node-publication-body'.
+   $field_instances['node-publication-body'] = array(
+     'bundle' => 'publication',
+     'default_value' => NULL,
+@@ -66,7 +66,7 @@ function govcms_publications_field_default_field_instances() {
+     ),
+   );
+
+-  // Exported field_instance: 'node-publication-field_date'
++  // Exported field_instance: 'node-publication-field_date'.
+   $field_instances['node-publication-field_date'] = array(
+     'bundle' => 'publication',
+     'default_value' => NULL,
+@@ -94,6 +94,7 @@ function govcms_publications_field_default_field_instances() {
+           'multiple_from' => '',
+           'multiple_number' => '',
+           'multiple_to' => '',
++          'show_remaining_days' => FALSE,
+         ),
+         'type' => 'date_default',
+         'weight' => 1,
+@@ -133,7 +134,7 @@ function govcms_publications_field_default_field_instances() {
+     ),
+   );
+
+-  // Exported field_instance: 'node-publication-field_documents'
++  // Exported field_instance: 'node-publication-field_documents'.
+   $field_instances['node-publication-field_documents'] = array(
+     'bundle' => 'publication',
+     'deleted' => 0,
+@@ -205,7 +206,7 @@ function govcms_publications_field_default_field_instances() {
+     ),
+   );
+
+-  // Exported field_instance: 'node-publication-field_image'
++  // Exported field_instance: 'node-publication-field_image'.
+   $field_instances['node-publication-field_image'] = array(
+     'bundle' => 'publication',
+     'deleted' => 0,
+@@ -232,7 +233,7 @@ function govcms_publications_field_default_field_instances() {
+         'module' => 'image',
+         'settings' => array(
+           'image_link' => 'content',
+-          'image_style' => 'medium',
++          'image_style' => 'esta_thumbnail',
+         ),
+         'type' => 'image',
+         'weight' => 1,
+@@ -280,7 +281,7 @@ function govcms_publications_field_default_field_instances() {
+     ),
+   );
+
+-  // Exported field_instance: 'node-publication-field_subtitle'
++  // Exported field_instance: 'node-publication-field_subtitle'.
+   $field_instances['node-publication-field_subtitle'] = array(
+     'bundle' => 'publication',
+     'default_value' => NULL,
+@@ -334,7 +335,7 @@ function govcms_publications_field_default_field_instances() {
+     ),
+   );
+
+-  // Exported field_instance: 'node-publication-field_tags'
++  // Exported field_instance: 'node-publication-field_tags'.
+   $field_instances['node-publication-field_tags'] = array(
+     'bundle' => 'publication',
+     'default_value' => NULL,
+diff --git a/modules/features/govcms_publications/govcms_publications.info b/modules/features/govcms_publications/govcms_publications.info
+index 78f70f5..bf0821f 100644
+--- a/modules/features/govcms_publications/govcms_publications.info
++++ b/modules/features/govcms_publications/govcms_publications.info
+@@ -3,12 +3,12 @@ description = Provides publications feature.
+ core = 7.x
+ package = govCMS
+ project = govcms_publications
+-dependencies[] = govcms_common_fields
+-dependencies[] = govcms_tags
+ dependencies[] = ctools
+ dependencies[] = date
+ dependencies[] = features
+ dependencies[] = file
++dependencies[] = govcms_common_fields
++dependencies[] = govcms_tags
+ dependencies[] = media
+ dependencies[] = options
+ dependencies[] = pathauto
+@@ -54,6 +54,6 @@ features[variable][] = scheduler_unpublish_enable_publication
+ features[variable][] = scheduler_unpublish_moderation_state_publication
+ features[variable][] = scheduler_unpublish_required_publication
+ features[variable][] = scheduler_unpublish_revision_publication
++features[variable][] = xmlsitemap_settings_node_publication
+ features[views_view][] = publications
+-mtime = 1416881418
+ wname = Publications
+diff --git a/modules/features/govcms_publications/govcms_publications.strongarm.inc b/modules/features/govcms_publications/govcms_publications.strongarm.inc
+index 9d19b54..f3e263a 100644
+--- a/modules/features/govcms_publications/govcms_publications.strongarm.inc
++++ b/modules/features/govcms_publications/govcms_publications.strongarm.inc
+@@ -233,5 +233,15 @@ function govcms_publications_strongarm() {
+   $strongarm->value = 0;
+   $export['scheduler_unpublish_revision_publication'] = $strongarm;
+
++  $strongarm = new stdClass();
++  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
++  $strongarm->api_version = 1;
++  $strongarm->name = 'xmlsitemap_settings_node_publication';
++  $strongarm->value = array(
++    'status' => '1',
++    'priority' => '0.5',
++  );
++  $export['xmlsitemap_settings_node_publication'] = $strongarm;
++
+   return $export;
+ }
+diff --git a/modules/features/govcms_slideshow/govcms_slideshow.features.field_base.inc b/modules/features/govcms_slideshow/govcms_slideshow.features.field_base.inc
+index 1b0b552..ca23c2b 100644
+--- a/modules/features/govcms_slideshow/govcms_slideshow.features.field_base.inc
++++ b/modules/features/govcms_slideshow/govcms_slideshow.features.field_base.inc
+@@ -10,14 +10,13 @@
+ function govcms_slideshow_field_default_field_bases() {
+   $field_bases = array();
+
+-  // Exported field_base: 'field_read_more'
++  // Exported field_base: 'field_read_more'.
+   $field_bases['field_read_more'] = array(
+     'active' => 1,
+     'cardinality' => 1,
+     'deleted' => 0,
+     'entity_types' => array(),
+     'field_name' => 'field_read_more',
+-    'foreign keys' => array(),
+     'indexes' => array(),
+     'locked' => 0,
+     'module' => 'link',
+@@ -40,21 +39,13 @@ function govcms_slideshow_field_default_field_bases() {
+     'type' => 'link_field',
+   );
+
+-  // Exported field_base: 'field_slide_image'
++  // Exported field_base: 'field_slide_image'.
+   $field_bases['field_slide_image'] = array(
+     'active' => 1,
+     'cardinality' => 1,
+     'deleted' => 0,
+     'entity_types' => array(),
+     'field_name' => 'field_slide_image',
+-    'foreign keys' => array(
+-      'fid' => array(
+-        'columns' => array(
+-          'fid' => 'fid',
+-        ),
+-        'table' => 'file_managed',
+-      ),
+-    ),
+     'indexes' => array(
+       'fid' => array(
+         0 => 'fid',
+diff --git a/modules/features/govcms_slideshow/govcms_slideshow.features.field_instance.inc b/modules/features/govcms_slideshow/govcms_slideshow.features.field_instance.inc
+index c9179fd..b6c7b4a 100644
+--- a/modules/features/govcms_slideshow/govcms_slideshow.features.field_instance.inc
++++ b/modules/features/govcms_slideshow/govcms_slideshow.features.field_instance.inc
+@@ -10,7 +10,7 @@
+ function govcms_slideshow_field_default_field_instances() {
+   $field_instances = array();
+
+-  // Exported field_instance: 'node-slide-body'
++  // Exported field_instance: 'node-slide-body'.
+   $field_instances['node-slide-body'] = array(
+     'bundle' => 'slide',
+     'default_value' => NULL,
+@@ -82,7 +82,7 @@ function govcms_slideshow_field_default_field_instances() {
+     ),
+   );
+
+-  // Exported field_instance: 'node-slide-field_read_more'
++  // Exported field_instance: 'node-slide-field_read_more'.
+   $field_instances['node-slide-field_read_more'] = array(
+     'bundle' => 'slide',
+     'default_value' => NULL,
+@@ -134,6 +134,7 @@ function govcms_slideshow_field_default_field_instances() {
+     'label' => 'Read more',
+     'required' => 0,
+     'settings' => array(
++      'absolute_url' => 1,
+       'attributes' => array(
+         'class' => '',
+         'configurable_title' => 0,
+@@ -152,6 +153,7 @@ function govcms_slideshow_field_default_field_instances() {
+       ),
+       'rel_remove' => 'default',
+       'title' => 'optional',
++      'title_label_use_field_label' => FALSE,
+       'title_maxlength' => 255,
+       'title_value' => '',
+       'url' => 0,
+@@ -167,7 +169,7 @@ function govcms_slideshow_field_default_field_instances() {
+     ),
+   );
+
+-  // Exported field_instance: 'node-slide-field_slide_image'
++  // Exported field_instance: 'node-slide-field_slide_image'.
+   $field_instances['node-slide-field_slide_image'] = array(
+     'bundle' => 'slide',
+     'deleted' => 0,
+@@ -187,12 +189,12 @@ function govcms_slideshow_field_default_field_instances() {
+       ),
+       'default' => array(
+         'label' => 'hidden',
+-        'module' => 'image_link_formatter',
++        'module' => 'image',
+         'settings' => array(
+           'image_link' => 'field_read_more',
+-          'image_style' => 'feature_article',
++          'image_style' => 'esta_banner',
+         ),
+-        'type' => 'image_link_formatter',
++        'type' => 'image',
+         'weight' => 0,
+       ),
+       'feature' => array(
+diff --git a/modules/features/govcms_slideshow/govcms_slideshow.features.inc b/modules/features/govcms_slideshow/govcms_slideshow.features.inc
+index a4b15d6..1fe647c 100755
+--- a/modules/features/govcms_slideshow/govcms_slideshow.features.inc
++++ b/modules/features/govcms_slideshow/govcms_slideshow.features.inc
+@@ -28,16 +28,8 @@ function govcms_slideshow_image_default_styles() {
+
+   // Exported image style: feature_article.
+   $styles['feature_article'] = array(
+-    'name' => 'feature_article',
+     'effects' => array(
+       7 => array(
+-        'label' => 'Scale and crop',
+-        'help' => 'Scale and crop will maintain the aspect-ratio of the original image, then crop the larger dimension. This is most useful for creating perfectly square thumbnails without stretching the image.',
+-        'effect callback' => 'image_scale_and_crop_effect',
+-        'dimensions callback' => 'image_resize_dimensions',
+-        'form callback' => 'image_resize_form',
+-        'summary theme' => 'image_resize_summary',
+-        'module' => 'image',
+         'name' => 'image_scale_and_crop',
+         'data' => array(
+           'width' => 640,
+@@ -51,16 +43,8 @@ function govcms_slideshow_image_default_styles() {
+
+   // Exported image style: slideshow_reorder.
+   $styles['slideshow_reorder'] = array(
+-    'name' => 'slideshow_reorder',
+     'effects' => array(
+       2 => array(
+-        'label' => 'Scale and crop',
+-        'help' => 'Scale and crop will maintain the aspect-ratio of the original image, then crop the larger dimension. This is most useful for creating perfectly square thumbnails without stretching the image.',
+-        'effect callback' => 'image_scale_and_crop_effect',
+-        'dimensions callback' => 'image_resize_dimensions',
+-        'form callback' => 'image_resize_form',
+-        'summary theme' => 'image_resize_summary',
+-        'module' => 'image',
+         'name' => 'image_scale_and_crop',
+         'data' => array(
+           'width' => 320,
+diff --git a/modules/features/govcms_slideshow/govcms_slideshow.info b/modules/features/govcms_slideshow/govcms_slideshow.info
+index 310703f..1a77858 100755
+--- a/modules/features/govcms_slideshow/govcms_slideshow.info
++++ b/modules/features/govcms_slideshow/govcms_slideshow.info
+@@ -3,8 +3,8 @@ description = Slideshow displayed on home page.
+ core = 7.x
+ package = govCMS
+ project = govcms_slideshow
+-dependencies[] = govcms_common_fields
+ dependencies[] = ds
++dependencies[] = govcms_common_fields
+ dependencies[] = image_link_formatter
+ dependencies[] = strongarm
+ dependencies[] = views
+@@ -44,5 +44,4 @@ features[variable][] = scheduler_unpublish_moderation_state_slide
+ features[variable][] = scheduler_unpublish_required_slide
+ features[variable][] = scheduler_unpublish_revision_slide
+ features[views_view][] = slideshow
+-mtime = 1416881418
+ project path = profiles/govcms/modules/features
+diff --git a/modules/features/govcms_slideshow/govcms_slideshow.strongarm.inc b/modules/features/govcms_slideshow/govcms_slideshow.strongarm.inc
+index e69fa73..80fe4d7 100755
+--- a/modules/features/govcms_slideshow/govcms_slideshow.strongarm.inc
++++ b/modules/features/govcms_slideshow/govcms_slideshow.strongarm.inc
+@@ -95,6 +95,9 @@ function govcms_slideshow_strongarm() {
+       'compact' => array(
+         'custom_settings' => FALSE,
+       ),
++      'diff_standard' => array(
++        'custom_settings' => FALSE,
++      ),
+     ),
+     'extra_fields' => array(
+       'form' => array(
+diff --git a/govcms.install b/govcms.install
+index 033efec..069cb6c 100644
+--- a/govcms.install
++++ b/govcms.install
+@@ -14,12 +14,12 @@
+ /**
+  * Define a default theme constant
+  */
+-define('GOVCMS_DEFAULT_THEME', 'govcms_barton');
++define('GOVCMS_DEFAULT_THEME', 'esta');
+
+ /**
+  * Define the install theme.
+  */
+-define('GOVCMS_INSTALL_DEFAULT_THEME', 'govcms_zen');
++define('GOVCMS_INSTALL_DEFAULT_THEME', 'esta');
+
+ /**
+  * Define the admin theme.
+@@ -658,7 +658,7 @@ function _govcms_default_blocks() {
+   govcms_core_insert_block('views', 'footer_teaser-block', $themes, 'footer', 1);
+
+   // Set govCMS sidebar blocks.
+-  govcms_core_insert_block('menu_block', 'govcms_menu_block-sidebar', $themes, 'sidebar_second', -50);
++  govcms_core_insert_block('menu_block', 'govcms_menu_block-sidebar', $themes, 'first_sidebar', -50);
+   govcms_core_insert_block('menu', 'menu-quick-links', $themes, 'sidebar_second', -48);
+   govcms_core_insert_block('govcms_social_links', 'services', $themes, 'sidebar_second', -47);
+
+@@ -1665,3 +1665,55 @@ function govcms_update_7201() {
+     module_enable(array('token_tweaks'));
+   }
+ }
++
++/**
++ * Changing default number of tweets to 3 for 'esta' theme.
++ */
++function govcms_update_7202() {
++  $twitter_blocks = db_query("SELECT * FROM {twitter_block}")->fetchAllAssoc('bid');
++  foreach ($twitter_blocks as $delta => $twitter_block) {
++    $data = unserialize($twitter_block->data);
++    $data['tweet_limit'] = '3';
++
++    // Save the block configuration.
++    db_update('twitter_block')
++      ->fields(array(
++        'data' => serialize($data),
++      ))
++      ->condition('bid', $delta)
++      ->execute();
++  }
++}
++
++/**
++ * Setting menu block title to 'In this section' for the 'esta' theme.
++ */
++function govcms_update_7203() {
++  db_update('block')
++    ->fields(array('title' => t('In this section'), 'weight' => '-49'))
++    ->condition('delta', 'govcms_menu_block-sidebar', '=')
++    ->condition('theme', 'esta', '=')
++    ->execute();
++}
++
++/**
++ * Setting Twitter block title to 'Latest tweets' for the 'esta' theme.
++ */
++function govcms_update_7204() {
++  db_update('block')
++    ->fields(array('title' => t('In this section'), 'weight' => '-50'))
++    ->condition('module', 'twitter_block', '=')
++    ->condition('theme', 'esta', '=')
++    ->execute();
++}
++
++/**
++ * Moving block Footer Teaser for the 'esta' theme.
++ */
++function govcms_update_7205() {
++  db_update('block')
++    ->fields(array('region' => 'sidebar_second', 'weight' => '-50'))
++    ->condition('delta', 'footer_teaser-block', '=')
++    ->condition('theme', 'esta', '=')
++    ->execute();
++}

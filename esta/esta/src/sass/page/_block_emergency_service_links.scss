@@ -1,0 +1,23 @@
+#block-block-1 {
+  background-color: white;
+  border-top: none;
+  padding-top: 5em;
+  h2 {
+    font-size: .75em;
+    margin: 0 0.5em 1em;
+    color: $neutral_2;
+  }
+  &>.inner-wrapper {
+    @include center-column($desktop_column);
+    &>.content {
+      display: flex;
+      flex-direction: row;
+      height: 80px;
+    }
+  }
+  img {
+    height: 50px;
+    width: auto;
+    margin-right: 4em;
+  }
+}

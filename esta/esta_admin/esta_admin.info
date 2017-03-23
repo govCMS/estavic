@@ -1,0 +1,6 @@
+screenshot  = screenshot.png
+name = ESTA Admin
+description = ESTA Admin theme, based on Shiny.
+
+core        = 7.x
+base theme = shiny

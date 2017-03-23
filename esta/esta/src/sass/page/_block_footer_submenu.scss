@@ -1,0 +1,71 @@
+#block-menu-menu-footer-sub-menu {
+  border-top: 1px solid $neutral_1;
+  padding-top: 4em;
+  padding-bottom: 4em;
+  @include breakpoint(desktop) {
+    border-top: none;
+  }
+  .content {
+    @include breakpoint(tablet) {
+      padding-top: rem(38px);
+      padding-bottom: rem(38px);
+      display: flex;
+      justify-content: space-between;
+      align-content: center;
+    }
+    ul.menu {
+      display: none;
+      padding-top: 2em;
+      @include breakpoint(tablet) {
+        order: 2;
+        text-align: right;
+        width: auto;
+        display: block;
+      }
+      &>li {
+        margin-bottom: rem(15px);
+        @include breakpoint(tablet) {
+          display: inline-block;
+          margin-left: rem(15px);
+        }
+        @include breakpoint(desktop) {
+          margin-left: rem(30px);
+        }
+        &:not(:last-child):after {
+          content: '|';
+          margin-left: rem(30px);
+        }
+        a {
+          font-weight: 400;
+        }
+      }
+    }
+    .footer-copyright {
+      line-height: em(30px);
+      white-space: nowrap;
+      margin-left: rem(150px);
+      width: rem(293px);
+      @include breakpoint(tablet) {
+        order: 1;
+      }
+      &:before {
+        content: url(../images/png/logo_Footer_Stacked.png);
+        top: rem(64px);
+        margin-left: -1 * rem(150px);
+        width: rem(118px);
+        height: rem(77px);
+      }
+      &:after {
+        background-image: url('../images/png/Vic_gov_logo_white_-_state_government.png');
+        background-size: rem(120px) rem(68px);
+        display: inline-block;
+        width: rem(120px);
+        height: rem(68px);
+        content: '';
+      }
+      span {
+        white-space: normal;
+      }
+    }
+  }
+}
