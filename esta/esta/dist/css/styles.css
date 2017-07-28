@@ -10236,23 +10236,27 @@ body.not-front #content .view .pager {
   }
 }
 
-.bean-operations-block {
+.pick-one {
+  width: 100%;
+}
+
+.pick-one .bean-operations-block {
   display: none;
 }
 
 @media (min-width: 1200px) {
-  .bean-operations-block {
+  .pick-one .bean-operations-block {
     display: block;
     padding: 0 1rem 1rem 1rem;
     margin: 0 0 1rem 0;
     background: #f0f3f5;
   }
-  .bean-operations-block .content {
+  .pick-one .bean-operations-block .content {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
   }
-  .bean-operations-block .content .file-image {
+  .pick-one .bean-operations-block .content .file-image {
     float: left;
     padding-right: 0.9375rem;
   }
