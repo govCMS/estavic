@@ -1,15 +1,18 @@
-.bean-operations-block {
-  display: none;
-  @include breakpoint(desktop) {
-    display: block;
-    padding: 0 rem(16px) rem(16px) rem(16px);
-    margin: 0 0 rem(16px) 0;
-    background: $neutral_4;
-    .content {
-      display: flex;
-      .file-image {
-        float: left;
-        padding-right: rem(15px);
+.pick-one {
+  width: 100%;
+  .bean-operations-block {
+    display: none;
+    @include breakpoint(desktop) {
+      display: block;
+      padding: 0 rem(16px) rem(16px) rem(16px);
+      margin: 0 0 rem(16px) 0;
+      background: $neutral_4;
+      .content {
+        display: flex;
+        .file-image {
+          float: left;
+          padding-right: rem(15px);
+        }
       }
     }
   }
