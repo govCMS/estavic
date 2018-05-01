@@ -9004,7 +9004,6 @@ ul.tabs.primary {
 #block-views-slideshow-block .view-content > ul {
   padding: 0;
   margin-bottom: 0;
-  height: 27.75rem;
 }
 
 #block-views-slideshow-block .view-content > ul:not(.owl-loaded) > li:not(.views-row-first) {
@@ -9050,10 +9049,10 @@ ul.tabs.primary {
 #block-views-slideshow-block .banner-description-holder {
   color: white;
   background-color: transparent;
-  height: 55.5rem;
+  position: relative;
+  height: auto;
   top: 27.75rem;
   background: #004990;
-  position: relative;
 }
 
 @media (min-width: 1200px) {
@@ -10706,13 +10705,13 @@ body.not-front #content .view .pager {
 
 #block-menu-menu-footer-sub-menu {
   border-top: 1px solid #313131;
-  padding-top: 4em;
-  padding-bottom: 4em;
+  padding-bottom: 2em;
 }
 
 @media (min-width: 1200px) {
   #block-menu-menu-footer-sub-menu {
     border-top: none;
+    padding-top: 2em;
   }
 }
 
@@ -10733,12 +10732,13 @@ body.not-front #content .view .pager {
 }
 
 #block-menu-menu-footer-sub-menu .content ul.menu {
-  display: none;
-  padding-top: 2em;
+  padding-top: 1em;
+  padding-bottom: 2em;
 }
 
 @media (min-width: 768px) {
   #block-menu-menu-footer-sub-menu .content ul.menu {
+    padding-top: 2em;
     -webkit-order: 2;
         -ms-flex-order: 2;
             order: 2;
@@ -10765,9 +10765,11 @@ body.not-front #content .view .pager {
   }
 }
 
-#block-menu-menu-footer-sub-menu .content ul.menu > li:not(:last-child):after {
-  content: '|';
-  margin-left: 1.875rem;
+@media (min-width: 768px) {
+  #block-menu-menu-footer-sub-menu .content ul.menu > li:not(:last-child):after {
+    content: '|';
+    margin-left: 1.875rem;
+  }
 }
 
 #block-menu-menu-footer-sub-menu .content ul.menu > li a {
@@ -10778,7 +10780,7 @@ body.not-front #content .view .pager {
   line-height: 1.875em;
   white-space: nowrap;
   margin-left: 9.375rem;
-  width: 18.3125rem;
+  width: 12.0625rem;
 }
 
 @media (min-width: 768px) {
