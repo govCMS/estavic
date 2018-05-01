@@ -55,7 +55,7 @@
 // SLIDER
 // =========================================================
 #block-views-slideshow-block {
-  height: rem(888px);
+  height: 55.5rem;
   @include breakpoint(desktop) {
     height: auto;
   }
@@ -68,7 +68,6 @@
     &>ul {
       padding: 0;
       margin-bottom: 0;
-      height: rem(444px);
       &:not(.owl-loaded) {
         &>li:not(.views-row-first) {
           display: none;
@@ -104,7 +103,8 @@
   .banner-description-holder {
     color: white;
     background-color: transparent;
-    height: rem(888px);
+    position: relative;
+    height: auto;
     top: rem(444px);
     background: $primary_1;
     @include breakpoint(desktop) {
@@ -114,7 +114,6 @@
       background: none;
       @include center-column($desktop_column);
     }
-    position: relative;
     h3 {
       @include link-colours(white, $neutral_4, $neutral_1);
       margin-top: 0;
