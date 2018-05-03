@@ -1,9 +1,9 @@
 #block-menu-menu-footer-sub-menu {
   border-top: 1px solid $neutral_1;
-  padding-top: 4em;
-  padding-bottom: 4em;
+  padding-bottom: 2em;
   @include breakpoint(desktop) {
     border-top: none;
+    padding-top: 2em;
   }
   .content {
     @include breakpoint(tablet) {
@@ -14,9 +14,10 @@
       align-content: center;
     }
     ul.menu {
-      display: none;
-      padding-top: 2em;
+      padding-top: 1em;
+      padding-bottom: 2em;
       @include breakpoint(tablet) {
+        padding-top: 2em;
         order: 2;
         text-align: right;
         width: auto;
@@ -32,8 +33,10 @@
           margin-left: rem(30px);
         }
         &:not(:last-child):after {
-          content: '|';
-          margin-left: rem(30px);
+          @include breakpoint(tablet) {
+            content: '|';
+            margin-left: rem(30px);
+          }
         }
         a {
           font-weight: 400;
@@ -44,7 +47,7 @@
       line-height: em(30px);
       white-space: nowrap;
       margin-left: rem(150px);
-      width: rem(293px);
+      width: rem(193px);
       @include breakpoint(tablet) {
         order: 1;
       }
