@@ -55,10 +55,7 @@
 // SLIDER
 // =========================================================
 #block-views-slideshow-block {
-  height: 55.5rem;
-  @include breakpoint(desktop) {
-    height: auto;
-  }
+  height: auto;
   &>h2 {
     @include visually-hidden;
   }
