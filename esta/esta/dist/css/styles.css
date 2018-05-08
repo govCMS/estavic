@@ -8976,13 +8976,7 @@ ul.tabs.primary {
 }
 
 #block-views-slideshow-block {
-  height: 55.5rem;
-}
-
-@media (min-width: 1200px) {
-  #block-views-slideshow-block {
-    height: auto;
-  }
+  height: auto;
 }
 
 #block-views-slideshow-block > h2, #block-views-slideshow-block > .display {
