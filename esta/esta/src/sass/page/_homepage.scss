@@ -67,7 +67,9 @@
       margin-bottom: 0;
       &:not(.owl-loaded) {
         &>li:not(.views-row-first) {
-          display: none;
+          @include breakpoint(tablet) {
+            display: none;
+          }
         }
       }
     }
@@ -79,11 +81,13 @@
   }
   .field-name-field-slide-image {
     @include clearfix;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    @include breakpoint(tablet) {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
     .field-items {
       height: 100%;
     }
@@ -98,30 +102,35 @@
     }
   }
   .banner-description-holder {
-    color: white;
-    background-color: transparent;
-    position: relative;
-    height: auto;
-    top: rem(444px);
     background: $primary_1;
-    @include breakpoint(desktop) {
-      padding: 0 rem(20px) 0 rem(20px);
-      height: auto;
+    @include breakpoint(tablet) {
       top: auto;
+      color: white;
       background: none;
+      position: relative;
+      height: auto;
       @include center-column($desktop_column);
+      padding: 0 rem(20px) 0 rem(20px);
     }
     h3 {
       @include link-colours(white, $neutral_4, $neutral_1);
       margin-top: 0;
       font-weight: 400;
-      margin-bottom: rem(21px);
-      font-size: rem(48px);
-      font-weight: 300;
+      font-size: rem(18px);
+      line-height: rem(23px);
+      @include breakpoint(tablet) {
+        margin-top: 0;
+        margin-bottom: rem(21px);
+        font-size: rem(48px);
+        font-weight: 300;
+        line-height: $base-heading-leading;
+      }
     }
     .banner-description-content-wrapper {
-      height: 280px;
       overflow: hidden;
+      @include breakpoint(tablet) {
+        height: 280px;
+      }
       @include breakpoint(desktop) {
         width: 434px;
       }
@@ -134,18 +143,27 @@
     }
     .field {
       color: $neutral_4;
-      @include breakpoint(desktop) {
+      @include breakpoint(tablet) {
         @include link-colours(white, $neutral_4, $neutral_1);
       }
       a {
-        color: $neutral_1;
-        background: $neutral_4;
         text-decoration: none;
         cursor: pointer;
         border-bottom: none;
-        @include breakpoint(desktop) {
+        @include breakpoint(tablet) {
           background: $primary_1;
           color: $neutral_4;
+        }
+        &[rel~='external'] {
+          @include breakpoint(tablet) {
+            position: absolute;
+          }
+          &:after {
+            @include breakpoint(tablet) {
+              height: rem(35px);
+              background-position: right center;
+            }
+          }
         }
       }
     }
@@ -155,19 +173,23 @@
     box-sizing: border-box;
     background-color: rgba(24, 59, 93, 0.8);
     padding: rem(45px);
-    min-height: rem(444px);
     color: white;
-    @include breakpoint(desktop) {
+    @include breakpoint(tablet) {
+      min-height: rem(444px);
+    }
+    @include breakpoint(tablet) {
       max-width: rem(524px);
       padding-top: rem(85px);
     }
     a {
-      padding: 12px 2em 12px 2em;
-      background: #004990;
       border: none;
       color: white;
-      position: absolute;
-      bottom: 32px;
+      @include breakpoint(tablet) {
+        position: absolute;
+        bottom: 32px;
+        padding: 12px 2em 12px 2em;
+        background: #004990;
+      }
     }
   }
   .slider-controls {
@@ -177,7 +199,7 @@
     margin-left: rem(20px);
     top: rem(352px);
     @include alpha-attribute('background-color', rgba($primary_1, 0.7), white);
-    @include breakpoint(desktop) {
+    @include breakpoint(tablet) {
       top: 0;
       left: 0;
       margin: 0;
