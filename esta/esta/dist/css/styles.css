@@ -9000,8 +9000,10 @@ ul.tabs.primary {
   margin-bottom: 0;
 }
 
-#block-views-slideshow-block .view-content > ul:not(.owl-loaded) > li:not(.views-row-first) {
-  display: none;
+@media (min-width: 768px) {
+  #block-views-slideshow-block .view-content > ul:not(.owl-loaded) > li:not(.views-row-first) {
+    display: none;
+  }
 }
 
 #block-views-slideshow-block .view-content li.views-row {
@@ -9010,18 +9012,20 @@ ul.tabs.primary {
   margin-bottom: 0;
 }
 
-#block-views-slideshow-block .field-name-field-slide-image {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
-
 #block-views-slideshow-block .field-name-field-slide-image::after {
   clear: both;
   content: "";
   display: table;
+}
+
+@media (min-width: 768px) {
+  #block-views-slideshow-block .field-name-field-slide-image {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
 }
 
 #block-views-slideshow-block .field-name-field-slide-image .field-items {
@@ -9041,26 +9045,23 @@ ul.tabs.primary {
 }
 
 #block-views-slideshow-block .banner-description-holder {
-  color: white;
-  background-color: transparent;
-  position: relative;
-  height: auto;
-  top: 27.75rem;
   background: #004990;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 768px) {
   #block-views-slideshow-block .banner-description-holder {
-    padding: 0 1.25rem 0 1.25rem;
-    height: auto;
     top: auto;
+    color: white;
     background: none;
+    position: relative;
+    height: auto;
     max-width: 73.125rem;
     margin-left: auto;
     margin-right: auto;
     padding-left: 1.25rem;
     padding-right: 1.25rem;
     box-sizing: content-box;
+    padding: 0 1.25rem 0 1.25rem;
   }
 }
 
@@ -9124,9 +9125,8 @@ ul.tabs.primary {
   */
   margin-top: 0;
   font-weight: 400;
-  margin-bottom: 1.3125rem;
-  font-size: 3rem;
-  font-weight: 300;
+  font-size: 1.125rem;
+  line-height: 1.4375rem;
 }
 
 #block-views-slideshow-block .banner-description-holder h3 a {
@@ -9193,9 +9193,24 @@ ul.tabs.primary {
   cursor: not-allowed;
 }
 
+@media (min-width: 768px) {
+  #block-views-slideshow-block .banner-description-holder h3 {
+    margin-top: 0;
+    margin-bottom: 1.3125rem;
+    font-size: 3rem;
+    font-weight: 300;
+    line-height: 1.4;
+  }
+}
+
 #block-views-slideshow-block .banner-description-holder .banner-description-content-wrapper {
-  height: 280px;
   overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  #block-views-slideshow-block .banner-description-holder .banner-description-content-wrapper {
+    height: 280px;
+  }
 }
 
 @media (min-width: 1200px) {
@@ -9220,7 +9235,7 @@ ul.tabs.primary {
   color: #f0f3f5;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 768px) {
   #block-views-slideshow-block .banner-description-holder .field {
     color: white;
     /*
@@ -9337,17 +9352,28 @@ ul.tabs.primary {
 }
 
 #block-views-slideshow-block .banner-description-holder .field a {
-  color: #313131;
-  background: #f0f3f5;
   text-decoration: none;
   cursor: pointer;
   border-bottom: none;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 768px) {
   #block-views-slideshow-block .banner-description-holder .field a {
     background: #004990;
     color: #f0f3f5;
+  }
+}
+
+@media (min-width: 768px) {
+  #block-views-slideshow-block .banner-description-holder .field a[rel~='external'] {
+    position: absolute;
+  }
+}
+
+@media (min-width: 768px) {
+  #block-views-slideshow-block .banner-description-holder .field a[rel~='external']:after {
+    height: 2.1875rem;
+    background-position: right center;
   }
 }
 
@@ -9356,11 +9382,16 @@ ul.tabs.primary {
   box-sizing: border-box;
   background-color: rgba(24, 59, 93, 0.8);
   padding: 2.8125rem;
-  min-height: 27.75rem;
   color: white;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 768px) {
+  #block-views-slideshow-block .banner-description-panel {
+    min-height: 27.75rem;
+  }
+}
+
+@media (min-width: 768px) {
   #block-views-slideshow-block .banner-description-panel {
     max-width: 32.75rem;
     padding-top: 5.3125rem;
@@ -9368,12 +9399,17 @@ ul.tabs.primary {
 }
 
 #block-views-slideshow-block .banner-description-panel a {
-  padding: 12px 2em 12px 2em;
-  background: #004990;
   border: none;
   color: white;
-  position: absolute;
-  bottom: 32px;
+}
+
+@media (min-width: 768px) {
+  #block-views-slideshow-block .banner-description-panel a {
+    position: absolute;
+    bottom: 32px;
+    padding: 12px 2em 12px 2em;
+    background: #004990;
+  }
 }
 
 #block-views-slideshow-block .slider-controls {
@@ -9386,7 +9422,7 @@ ul.tabs.primary {
   background-color: rgba(0, 73, 144, 0.7);
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 768px) {
   #block-views-slideshow-block .slider-controls {
     top: 0;
     left: 0;

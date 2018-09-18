@@ -7,7 +7,7 @@
   function slider_responsive() {
     var w = window.innerWidth || document.documentElement.clientWidth;
     // Mobile (No Slider - disabled for ESTA).
-    if (false && w < tablet_breakpoint && is_slider_running) {
+    if (w < tablet_breakpoint && is_slider_running) {
       // Disable Slick (and a little extra housekeeping).
       is_slider_running = false;
       owl.destroy();
