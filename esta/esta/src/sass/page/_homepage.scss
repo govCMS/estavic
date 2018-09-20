@@ -96,9 +96,13 @@
     }
     img {
       object-fit: cover;
+      object-position: right;
       float: left;
       width: 100%;
       height: rem(444px);
+      @include breakpoint(tablet) {
+        object-position: center;
+      }
     }
   }
   .banner-description-holder {

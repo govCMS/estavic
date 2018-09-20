@@ -9037,11 +9037,18 @@ ul.tabs.primary {
 }
 
 #block-views-slideshow-block .field-name-field-slide-image img {
-  font-family: "object-fit:cover";
+  font-family: "object-fit:cover;object-position:right";
   object-fit: cover;
+  object-position: right;
   float: left;
   width: 100%;
   height: 27.75rem;
+}
+
+@media (min-width: 768px) {
+  #block-views-slideshow-block .field-name-field-slide-image img {
+    object-position: center;
+  }
 }
 
 #block-views-slideshow-block .banner-description-holder {
