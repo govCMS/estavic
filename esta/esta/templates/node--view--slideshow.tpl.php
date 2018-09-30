@@ -84,6 +84,7 @@
 
   <div class="content"<?php print $content_attributes; ?>>
     <?php print render($content['field_slide_image']); ?>
+    <?php print render($content['field_slide_mobile_image']); ?>
     <div class="banner-description-holder">
       <div class="banner-description-panel">
         <div class="banner-description-content-wrapper">
