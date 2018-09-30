@@ -81,7 +81,9 @@
   }
   .field-name-field-slide-image {
     @include clearfix;
+    display: none;
     @include breakpoint(tablet) {
+      display: block;
       position: absolute;
       top: 0;
       bottom: 0;
@@ -103,6 +105,16 @@
       @include breakpoint(tablet) {
         object-position: center;
       }
+    }
+  }
+  .field-name-field-slide-mobile-image {
+    display: block;
+    hight: auto;
+    @include breakpoint(tablet) {
+      display: none;
+    }
+    img {
+      height: auto;
     }
   }
   .banner-description-holder {
