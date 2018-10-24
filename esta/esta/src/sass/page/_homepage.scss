@@ -109,11 +109,12 @@
   }
   .field-name-field-slide-mobile-image {
     display: block;
-    hight: auto;
+    height: auto;
     @include breakpoint(tablet) {
       display: none;
     }
     img {
+      width: 100%;
       height: auto;
     }
   }
