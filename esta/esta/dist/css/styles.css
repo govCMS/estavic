@@ -9058,7 +9058,7 @@ ul.tabs.primary {
 
 #block-views-slideshow-block .field-name-field-slide-mobile-image {
   display: block;
-  hight: auto;
+  height: auto;
 }
 
 @media (min-width: 768px) {
@@ -9068,6 +9068,7 @@ ul.tabs.primary {
 }
 
 #block-views-slideshow-block .field-name-field-slide-mobile-image img {
+  width: 100%;
   height: auto;
 }
 
