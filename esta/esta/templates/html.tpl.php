@@ -57,5 +57,6 @@
   <?php print $page_top; ?>
   <?php print $page; ?>
   <?php print $page_bottom; ?>
+  <script src="https://caretaker-vic-gov.s3-ap-southeast-2.amazonaws.com/message.js" defer="true"></script>
 </body>
 </html>
